@@ -1,0 +1,4 @@
+functionName,firstName,middleName,lastname,emailId,profilePic,smlType,dob,gender,mobile,whatsappNumber,whatsappUpdates,password,useSameNumberForWhatsapp,terms,countryName,countryCode,regionName,regionCode,cityName,cityCode,isEmailVerified,occupation,outSideYear,longitude,latitude
+sign-up,Midhun,,S,midhun104@yopmail.com,,google,01-01-1999,male,1234567890,1234567890,TRUE,Test@123,TRUE,TRUE,Germany,DE,Berlin,BE,Berlin,BE,TRUE,1,7,13.48624538,52.45200383
+sign-up,Midhun,,S,midhun105@yopmail.com,,google,01-01-1999,male,1234567890,1234567890,TRUE,Test@123,TRUE,TRUE,Germany,DE,Berlin,BE,Berlin,BE,TRUE,1,7,13.48624538,52.45200383
+sign-up,Midhun,,S,midhun106@yopmail.com,,google,01-01-1999,male,1234567890,1234567890,TRUE,Test@123,TRUE,TRUE,Germany,DE,Berlin,BE,Berlin,BE,TRUE,1,7,13.48624538,52.45200383
