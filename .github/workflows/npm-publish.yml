@@ -12,4 +12,5 @@ jobs:
         node-version: 20
     - run: npm install
     - run: npx playwright install --with-deps
-    - run: npx playwright test --workers=5
+    - run: npx playwright test --workers=20 --project=chromium --reporter=html
+    - run: npx playwright show-report
