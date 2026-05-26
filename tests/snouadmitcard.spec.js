@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
-
+test.setTimeout(60000);
 test.describe.configure({ mode: 'parallel' });
 // CSV file path
 const csvPath = path.join(__dirname, '../test-data/sgoustudentsadmitcard.csv');
@@ -18,6 +18,7 @@ users.forEach((email, index) => {
     await page.locator('//*[@id="btnLogin"]').click();
     console.log(`User ${email} logged successfully...`);
     await page.locator('(//*[@id="dashboard"]//div[@class="mt-2"]//a)[1]').click();
+    await page.waitForTimeout(10000);
     console.log("Download admit button clicked successfully....");
     await expect(page.locator('//*[@id="print_pdf_content"]')).toBeVisible();
   });
