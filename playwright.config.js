@@ -10,3 +10,21 @@ module.exports = defineConfig({
     },
   ],
 });
+module.exports = defineConfig({
+
+  testDir: './tests',
+
+  timeout: 600000,
+
+  reporter: [
+    ['html', { open: 'always' }]
+  ],
+
+  use: {
+    headless: false,
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'retain-on-failure'
+  }
+
+});
