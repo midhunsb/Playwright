@@ -25,7 +25,9 @@ users.forEach((email, index) => {
     const context = page.context();
     const [newPage] = await Promise.all([
       context.waitForEvent('page'),
-      page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click()
+      page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click(),
+      console.log("Generate button clicked successfully....")
+
     ]);
     // Wait until PDF page fully opens
     await newPage.waitForLoadState();
