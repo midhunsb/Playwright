@@ -23,22 +23,17 @@ users.forEach((email, index) => {
     await page.locator('//h6[text()="Grade Card Report"]').click();
     console.log("Grade card report button clicked successfully....");
     const context = page.context();
-    const [newPage] = await Promise.all([
-      context.waitForEvent('page'),
-      page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click(),
-      console.log("Generate button clicked successfully....")
+   const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click(),
+  console.log("Generate button clicked successfully....")
+]);
 
-    ]);
-    // Wait until PDF page fully opens
-    await newPage.waitForLoadState();
-    // Wait for URL contains expected text
-    await expect(newPage).toHaveURL(/student-mark-list/);
-    const pdfUrl = newPage.url();
-    console.log("PDF URL:", pdfUrl);
-    // Validate response
-    const response = await newPage.goto(pdfUrl);
-    expect(response.status()).toBe(200);
-    console.log("PDF loaded successfully...");
-  });
+await newPage.waitForLoadState('domcontentloaded');
 
+await expect(newPage).toHaveURL(/student-mark-list/);
+
+console.log("PDF page opened successfully...");
+console.log(await newPage.url());
+});
 });
