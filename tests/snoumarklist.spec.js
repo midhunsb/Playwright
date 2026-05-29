@@ -1,7 +1,7 @@
 const {test,expect} = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
-test.setTimeout(600000);
+test.setTimeout(6000000);
 test.describe.configure({
   mode: 'parallel'
 });

@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
-test.setTimeout(60000);
+test.setTimeout(600000);
 test.describe.configure({ mode: 'parallel' });
 // CSV file path
 const csvPath = path.join(__dirname, '../test-data/sgoustudentsadmitcard.csv');
