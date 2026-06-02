@@ -1,7 +1,7 @@
 const {test,expect} = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
-test.setTimeout(6000000);
+test.setTimeout(600000);
 test.describe.configure({
   mode: 'parallel'
 });
@@ -27,16 +27,16 @@ users.forEach((email, index) => {
     await page.locator('//h6[@class="card-title" and text()="Grade Card Report"]').click();
     console.log("Grade card report button clicked successfully....");
     //await page.waitForTimeout(9000);
-    //const context = page.context();
-    //const [newPage] = await Promise.all([
-      //context.waitForEvent('page'),
-      await page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click();
+    const context = page.context();
+    const [newPage] = await Promise.all([
+      context.waitForEvent('page'),
+      page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click(),
       console.log("Generate button clicked successfully....")
-    
-    // await newPage.waitForLoadState('domcontentloaded');
-    // await expect(newPage.locator('embed')).toBeVisible({timeout: 20000});
-    // const pdfUrl = await newPage.url();
-    // expect(pdfUrl).toContain('student-mark-list');
-      console.log("URL Contains /student-mark-list");
+    ]);
+    await newPage.waitForLoadState('domcontentloaded');
+    //await expect(newPage.locator('embed')).toBeVisible({timeout: 20000});
+    const pdfUrl = await newPage.url();
+    expect(pdfUrl).toContain('student-mark-list');
+    console.log(await newPage.url());
   });
 });
