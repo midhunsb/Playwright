@@ -33,9 +33,9 @@ users.forEach((email, index) => {
       page.locator('(//*[@id="semester_list"]//a[text()="Generate"])[1]').click(),
       console.log("Generate button clicked successfully....")
     ]);
-    await newPage.waitForLoadState('domcontentloaded');
+    //await newPage.waitForLoadState('domcontentloaded');
     //await expect(newPage.locator('embed')).toBeVisible({timeout: 20000});
-    const pdfUrl = await newPage.url();
+    //const pdfUrl = await newPage.url();
     expect(pdfUrl).toContain('student-mark-list');
     console.log(await newPage.url());
   });
