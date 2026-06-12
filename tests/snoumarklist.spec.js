@@ -21,12 +21,10 @@ users.forEach((email, index) => {
     await page.locator('//*[@id="psWd"]').fill('654321');
     await page.locator('//*[@id="btnLogin"]').click();
     console.log(`User ${email} logged successfully...`);
-    //await page.waitForTimeout(4000);
     await page.waitForLoadState('networkidle');
     await page.locator('//*[@id="course-pills-tab-2-enrld"]').click();
     await page.locator('//h6[@class="card-title" and text()="Grade Card Report"]').click();
     console.log("Grade card report button clicked successfully....");
-    //await page.waitForTimeout(9000);
     const context = page.context();
     const [newPage] = await Promise.all([
       context.waitForEvent('page'),
@@ -37,6 +35,7 @@ users.forEach((email, index) => {
     //await expect(newPage.locator('embed')).toBeVisible({timeout: 20000});
     //const pdfUrl = await newPage.url();
     //expect(pdfUrl).toContain('student-mark-list');
+    await newPage.waitForLoadState('networkidle');
     console.log(await newPage.url());
   });
 });

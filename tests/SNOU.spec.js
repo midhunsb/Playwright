@@ -5,7 +5,7 @@ test.setTimeout(300000);
 test.beforeAll(async ({ browser }) => {
     context = await browser.newContext({acceptDownloads: true});
     page = await context.newPage();
-    await page.goto('https://erpsgou.cdipd.in');
+    await page.goto('https://erpsgou.cdipd.in/login-official');
 });
 test.afterAll(async () => {
     await context.close();
